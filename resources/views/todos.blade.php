@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<!-- <div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-5">
     <div class="col-lg-6">
         @if(session()->has('success'))
             <div class="alert alert-success">
@@ -29,15 +29,22 @@
             @endforeach
         @endif
     </div>
-</div> -->
+</div>
 
+<div class="text-center mt-5">
+    <h2>Add Todo</h2>
 
-
-
-
-
-
-
+    <form class="row g-3 justify-content-center" method="POST" action="{{route('todos.store')}}">
+        @csrf
+        <div class="col-6">
+            <input type="text" class="form-control" name="title" placeholder="Title">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </div>
+        
+    </form>
+</div>
 
 <div class="text-center">
     <h2>All Todos</h2>
@@ -71,8 +78,8 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn btn-info">Edit</a>
-                            <a class="btn btn-danger">Delete</a>
+                            <a href="{{route('todos.edit',['todo'=>$todo->id])}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('todos.destory',['todo'=>$todo->id])}}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
 
@@ -85,6 +92,8 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <div class="row justify-content-center mt-5">
     <div class="col-lg-6">
         @if(session()->has('success'))
@@ -34,14 +33,10 @@
 
 <div class="text-center mt-5">
     <h2>Edit Todo</h2>
-</div>
 
 <form  method="POST" action="{{route('todos.update',['todo'=>$todo->id])}}">
-
     @csrf
-
     {{ method_field('PUT') }}
-
     <div class="row justify-content-center mt-5">
 
         <div class="col-lg-6">
